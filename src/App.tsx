@@ -1,27 +1,44 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
-
-const queryClient = new QueryClient();
+import { ConfigProvider, theme } from "antd";
+import AppLayout from "./components/AppLayout";
+import Index from "./pages/Index";
+import Products from "./pages/Products";
+import Industries from "./pages/Industries";
+import Technology from "./pages/Technology";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+  <ConfigProvider
+    theme={{
+      algorithm: theme.darkAlgorithm,
+      token: {
+        colorPrimary: '#00b4d8',
+        colorBgContainer: '#131b2e',
+        colorBgElevated: '#1a2340',
+        colorBorder: '#1f2937',
+        colorText: '#e5e7eb',
+        colorTextSecondary: '#9ca3af',
+        borderRadius: 8,
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      },
+    }}
+  >
+    <BrowserRouter>
+      <AppLayout>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/products" element={<Products />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/technology" element={<Technology />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+      </AppLayout>
+    </BrowserRouter>
+  </ConfigProvider>
 );
 
 export default App;
