@@ -15,7 +15,7 @@ const About = () => (
         <Row gutter={[24, 24]} style={{ marginBottom: 64 }}>
           {[
             { icon: <GlobalOutlined style={{ fontSize: 32, color: '#00b4d8' }} />, title: 'Global Presence', desc: 'Installations across 40+ countries on 6 continents.' },
-            { icon: <SafetyCertificateOutlined style={{ fontSize: 32, color: '#00b4d8' }} />, title: 'Certifications', desc: 'DNV, ClassNK, and Lloyd's certified simulation systems.' },
+            { icon: <SafetyCertificateOutlined style={{ fontSize: 32, color: '#00b4d8' }} />, title: 'Certifications', desc: "DNV, ClassNK, and Lloyd's certified simulation systems." },
             { icon: <TrophyOutlined style={{ fontSize: 32, color: '#00b4d8' }} />, title: 'Awards', desc: 'Recognized for innovation in simulation technology.' },
             { icon: <TeamOutlined style={{ fontSize: 32, color: '#00b4d8' }} />, title: 'Partners', desc: 'Collaborations with leading defence and maritime organizations.' },
           ].map(item => (
