@@ -7,9 +7,10 @@ const { TextArea } = Input;
 const Contact = () => (
   <div className="section">
     <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px' }}>
-      <Title level={2} style={{ marginBottom: 8 }}>Contact Us</Title>
+      <Paragraph className="accent" style={{ letterSpacing: 3, fontSize: 12, marginBottom: 8 }}>CONTACT</Paragraph>
+      <Title level={2} style={{ marginBottom: 8, fontWeight: 700 }}>Get in Touch</Title>
       <Paragraph type="secondary" style={{ marginBottom: 48, maxWidth: 600 }}>
-        Request a demo or discuss your simulation requirements with our team.
+        Request a demo or discuss your simulation requirements.
       </Paragraph>
 
       <Row gutter={[48, 48]}>
@@ -37,7 +38,7 @@ const Contact = () => (
               <Form.Item label={<Text>Message</Text>}>
                 <TextArea rows={4} placeholder="Describe your requirements..." />
               </Form.Item>
-              <Button type="primary" size="large" block>Submit Request</Button>
+              <Button type="primary" size="large" block style={{ height: 48 }}>Submit Request</Button>
             </Form>
           </Card>
         </Col>
