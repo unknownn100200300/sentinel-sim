@@ -1,64 +1,103 @@
-import { Layout, Menu, Typography, Row, Col, Space } from 'antd';
+import { Layout, Menu, Typography, Row, Col, Space, Drawer, Button } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
-import { MailOutlined, PhoneOutlined } from '@ant-design/icons';
+import { MailOutlined, PhoneOutlined, MenuOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 
 const { Header, Footer, Content } = Layout;
 const { Text } = Typography;
 
-const menuItems = [
-  { key: '/', label: <Link to="/">Home</Link> },
-  { key: '/products', label: <Link to="/products">Products</Link> },
-  { key: '/industries', label: <Link to="/industries">Industries</Link> },
-  { key: '/technology', label: <Link to="/technology">Technology</Link> },
-  { key: '/about', label: <Link to="/about">About</Link> },
-  { key: '/contact', label: <Link to="/contact">Contact</Link> },
+const navItems = [
+  { key: '/', label: 'Home' },
+  { key: '/products', label: 'Products' },
+  { key: '/industries', label: 'Industries' },
+  { key: '/technology', label: 'Technology' },
+  { key: '/about', label: 'About' },
+  { key: '/contact', label: 'Contact' },
 ];
+
+const menuItems = navItems.map(item => ({
+  key: item.key,
+  label: <Link to={item.key}>{item.label}</Link>,
+}));
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Header style={{ position: 'fixed', zIndex: 100, width: '100%', padding: '0 48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <Header style={{ position: 'fixed', zIndex: 100, width: '100%', padding: '0 48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Text strong style={{ fontSize: 18, color: '#00b4d8', letterSpacing: 2 }}>ARI SIMULATION</Text>
+          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#B8FF57', boxShadow: '0 0 8px rgba(184,255,87,0.5)' }} />
+          <Text strong style={{ fontSize: 16, color: '#B8FF57', letterSpacing: 3, fontWeight: 700 }}>ARI SIMULATION</Text>
         </Link>
         <Menu
           theme="dark"
           mode="horizontal"
           selectedKeys={[location.pathname]}
           items={menuItems}
-          style={{ flex: 1, justifyContent: 'flex-end', borderBottom: 'none' }}
+          style={{ flex: 1, justifyContent: 'flex-end', borderBottom: 'none', background: 'transparent' }}
+          className="desktop-menu"
+        />
+        <Button
+          type="text"
+          icon={<MenuOutlined style={{ color: '#B8FF57', fontSize: 20 }} />}
+          onClick={() => setDrawerOpen(true)}
+          className="mobile-menu-btn"
+          style={{ display: 'none' }}
         />
       </Header>
+
+      <Drawer
+        placement="right"
+        onClose={() => setDrawerOpen(false)}
+        open={drawerOpen}
+        styles={{ body: { background: '#0F1412', padding: 0 }, header: { background: '#0F1412', borderBottom: '1px solid #2D3B2F' } }}
+      >
+        <Menu
+          theme="dark"
+          mode="vertical"
+          selectedKeys={[location.pathname]}
+          items={menuItems}
+          onClick={() => setDrawerOpen(false)}
+          style={{ background: 'transparent', borderRight: 'none' }}
+        />
+      </Drawer>
+
       <Content style={{ marginTop: 64 }}>{children}</Content>
-      <Footer style={{ padding: '48px' }}>
+
+      <Footer style={{ padding: '64px 48px 32px' }}>
         <Row gutter={[48, 32]}>
           <Col xs={24} md={8}>
-            <Text strong style={{ fontSize: 16, color: '#00b4d8' }}>ARI SIMULATION</Text>
-            <br /><br />
-            <Text type="secondary">Applied Research International Pvt. Ltd.</Text>
-            <br />
-            <Text type="secondary">High-fidelity simulation for mission-critical training.</Text>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
+              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#B8FF57' }} />
+              <Text strong style={{ color: '#B8FF57', letterSpacing: 2, fontSize: 14 }}>ARI SIMULATION</Text>
+            </div>
+            <Text type="secondary" style={{ fontSize: 13, lineHeight: 1.8, display: 'block' }}>
+              Applied Research International Pvt. Ltd.<br />
+              High-fidelity simulation for mission-critical training.
+            </Text>
           </Col>
           <Col xs={24} md={8}>
-            <Text strong>Quick Links</Text>
-            <br /><br />
-            <Space direction="vertical">
-              {menuItems.map(item => <span key={item.key}>{item.label}</span>)}
+            <Text strong style={{ marginBottom: 16, display: 'block', letterSpacing: 1 }}>NAVIGATION</Text>
+            <Space direction="vertical" size={8}>
+              {navItems.map(item => (
+                <Link key={item.key} to={item.key} style={{ color: '#9CA3AF', fontSize: 13, transition: 'color 0.2s' }}>
+                  {item.label}
+                </Link>
+              ))}
             </Space>
           </Col>
           <Col xs={24} md={8}>
-            <Text strong>Contact</Text>
-            <br /><br />
-            <Space direction="vertical">
-              <Text type="secondary"><PhoneOutlined /> +91 11 41326882</Text>
-              <Text type="secondary"><MailOutlined /> info@arisimulation.com</Text>
+            <Text strong style={{ marginBottom: 16, display: 'block', letterSpacing: 1 }}>CONTACT</Text>
+            <Space direction="vertical" size={8}>
+              <Text type="secondary" style={{ fontSize: 13 }}><PhoneOutlined /> +91 11 41326882</Text>
+              <Text type="secondary" style={{ fontSize: 13 }}><MailOutlined /> info@arisimulation.com</Text>
             </Space>
           </Col>
         </Row>
-        <div style={{ borderTop: '1px solid #1f2937', marginTop: 32, paddingTop: 24, textAlign: 'center' }}>
-          <Text type="secondary">© {new Date().getFullYear()} ARI Simulation. All rights reserved.</Text>
+        <div style={{ borderTop: '1px solid #2D3B2F', marginTop: 48, paddingTop: 24, textAlign: 'center' }}>
+          <Text type="secondary" style={{ fontSize: 12 }}>© {new Date().getFullYear()} ARI Simulation. All rights reserved.</Text>
         </div>
       </Footer>
     </Layout>

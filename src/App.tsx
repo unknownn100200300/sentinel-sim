@@ -14,12 +14,12 @@ const App = () => (
     theme={{
       algorithm: theme.darkAlgorithm,
       token: {
-        colorPrimary: '#00b4d8',
-        colorBgContainer: '#131b2e',
-        colorBgElevated: '#1a2340',
-        colorBorder: '#1f2937',
-        colorText: '#e5e7eb',
-        colorTextSecondary: '#9ca3af',
+        colorPrimary: '#B8FF57',
+        colorBgContainer: '#1A2B1E',
+        colorBgElevated: '#223A26',
+        colorBorder: '#2D3B2F',
+        colorText: '#E5E7EB',
+        colorTextSecondary: '#9CA3AF',
         borderRadius: 8,
         fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
       },
