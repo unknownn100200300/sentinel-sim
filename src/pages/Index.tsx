@@ -7,7 +7,7 @@ import marineImg from '@/assets/marine-sim.jpg';
 import offshoreImg from '@/assets/offshore-sim.jpg';
 import craneImg from '@/assets/crane-sim.jpg';
 
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph, Text } = Typography;
 
 const stats = [
   { value: '500+', label: 'Simulators Deployed' },
