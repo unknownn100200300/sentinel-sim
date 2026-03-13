@@ -1,15 +1,16 @@
 import { Typography, Row, Col, Card } from 'antd';
-import { AimOutlined, GlobalOutlined, ExperimentOutlined, BookOutlined, BulbOutlined } from '@ant-design/icons';
+import { AimOutlined, GlobalOutlined, ExperimentOutlined, BookOutlined, BulbOutlined, SafetyCertificateOutlined } from '@ant-design/icons';
 import navalImg from '@/assets/naval-forces.jpg';
 
 const { Title, Paragraph } = Typography;
 
 const sectors = [
-  { icon: <AimOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Naval Forces', desc: 'Warship bridge, CMS, and tactical trainers for navies worldwide.' },
-  { icon: <GlobalOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Port Authorities', desc: 'Crane and vessel traffic simulation for port operations.' },
-  { icon: <ExperimentOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Oil & Gas', desc: 'Drilling, well control, and offshore operations training.' },
-  { icon: <BookOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Maritime Academies', desc: 'STCW-compliant training for maritime education.' },
-  { icon: <BulbOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Defence Research', desc: 'R&D simulation for defence laboratories and agencies.' },
+  { icon: <AimOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Naval Forces', desc: 'Integrated naval simulation complexes, bridge operations, submarine, CIC, ASTT, and FAC simulators for navies worldwide. Multi-force joint training with HLA interoperability.' },
+  { icon: <GlobalOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Port Authorities', desc: 'QC, RTG, RMG, pedestal, straddle carrier, and mobile crane simulators. SAFEPORT feasibility studies for port development and vessel navigation analysis.' },
+  { icon: <ExperimentOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Oil & Gas', desc: 'Offshore bridge, DP, anchor handling, ROV, and engine room simulators. IADC & IWCF certified cloud-based drilling & well control assessment.' },
+  { icon: <BookOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Maritime Academies', desc: 'DNV Class A certified navigation, engine room, cargo handling, GMDSS, and VTS simulators. STCW-compliant training and assessment solutions.' },
+  { icon: <BulbOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Defence Research', desc: 'Cyber warfare simulation, maritime domain awareness, coastal security, and joint military operations. Defence-grade network compatible distributed simulation.' },
+  { icon: <SafetyCertificateOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Government Agencies', desc: 'Proven supplier to defence establishments and government maritime administrations globally. ISO 9001 & ISO 14001 certified with confidential data protection.' },
 ];
 
 const Industries = () => (

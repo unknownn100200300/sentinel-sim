@@ -2,6 +2,7 @@ import { Layout, Menu, Typography, Row, Col, Space, Drawer, Button } from 'antd'
 import { Link, useLocation } from 'react-router-dom';
 import { MailOutlined, PhoneOutlined, MenuOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import ariLogo from '@/assets/ari-logo-light.png';
 
 const { Header, Footer, Content } = Layout;
 const { Text } = Typography;

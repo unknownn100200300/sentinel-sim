@@ -4,18 +4,18 @@ import { TrophyOutlined, GlobalOutlined, SafetyCertificateOutlined, TeamOutlined
 const { Title, Paragraph, Text } = Typography;
 
 const pillars = [
-  { icon: <GlobalOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Global Presence', desc: 'Installations across 40+ countries on 6 continents.' },
-  { icon: <SafetyCertificateOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Certifications', desc: "DNV, ClassNK, and Lloyd's certified simulation systems." },
-  { icon: <TrophyOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Awards', desc: 'Recognized for innovation in simulation technology.' },
-  { icon: <TeamOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Partners', desc: 'Collaborations with leading defence and maritime organizations.' },
+  { icon: <GlobalOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Global Presence', desc: 'Headquartered in New Delhi, India with offices in the US & Singapore. 1300+ installations worldwide.' },
+  { icon: <SafetyCertificateOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Certifications', desc: 'DNV, ABS, LRQA certified. ISO 9001, ISO 14001, OHSAS, ISMS. 55+ copyrights globally recognized.' },
+  { icon: <TrophyOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Industry Leadership', desc: 'Among only 3 globally certified companies approved by IADC & IWCF for cloud-based drilling assessment.' },
+  { icon: <TeamOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Zen Technologies', desc: 'A subsidiary of Zen Technologies Limited — combining defence technology expertise with simulation innovation.' },
 ];
 
 const timeline = [
-  { year: '1998', event: 'Founded in New Delhi, India' },
+  { year: '1998', event: 'Founded in New Delhi as Applied Research International (ARI)' },
   { year: '2005', event: 'First international naval simulator delivery' },
-  { year: '2012', event: 'Expanded to 20+ countries' },
-  { year: '2018', event: 'Launched VR-based training platforms' },
-  { year: '2024', event: '500+ simulators deployed globally' },
+  { year: '2012', event: 'Expanded to 20+ countries with DNV certification' },
+  { year: '2018', event: 'Launched VR-based training and cloud simulation platforms' },
+  { year: '2024', event: '1300+ installations, 75,000+ cloud certificates generated' },
 ];
 
 const About = () => (
@@ -24,8 +24,8 @@ const About = () => (
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px' }}>
         <Paragraph className="accent" style={{ letterSpacing: 3, fontSize: 12, marginBottom: 8 }}>ABOUT</Paragraph>
         <Title level={2} style={{ marginBottom: 8, fontWeight: 700 }}>About ARI Simulation</Title>
-        <Paragraph type="secondary" style={{ maxWidth: 700, marginBottom: 48 }}>
-          For over 25 years, ARI has designed and manufactured high-fidelity simulation systems for defence, maritime, and energy sectors worldwide.
+        <Paragraph type="secondary" style={{ maxWidth: 800, marginBottom: 48 }}>
+          Applied Research International (ARI), the naval and marine simulation arm of Zen Technologies Limited, is a global leader in sophisticated simulation and virtual reality training solutions for the defence, marine & offshore industries. With over 26 years of expertise in advanced simulation — including real-time graphics, virtual/augmented reality, and dynamic modeling — ARI serves millions of users across 1300+ physical installations and cloud-based solutions.
         </Paragraph>
 
         <Row gutter={[24, 24]} style={{ marginBottom: 80 }}>
