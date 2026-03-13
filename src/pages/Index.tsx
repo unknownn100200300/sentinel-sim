@@ -6,6 +6,9 @@ import defenceImg from '@/assets/defence-sim.jpg';
 import marineImg from '@/assets/marine-sim.jpg';
 import offshoreImg from '@/assets/offshore-sim.jpg';
 import craneImg from '@/assets/crane-sim.jpg';
+import portfolioImg from '@/assets/portfolio.jpg';
+import mapImg from '@/assets/global-map.jpg';
+import certsImg from '@/assets/certifications.jpg';
 
 const { Title, Paragraph, Text } = Typography;
 
