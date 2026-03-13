@@ -70,8 +70,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
         <Row gutter={[48, 32]}>
           <Col xs={24} md={8}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#B8FF57' }} />
-              <Text strong style={{ color: '#B8FF57', letterSpacing: 2, fontSize: 14 }}>ARI SIMULATION</Text>
+              <img src={ariLogo} alt="ARI Simulation" style={{ height: 28 }} />
             </div>
             <Text type="secondary" style={{ fontSize: 13, lineHeight: 1.8, display: 'block' }}>
               Applied Research International Pvt. Ltd.<br />
