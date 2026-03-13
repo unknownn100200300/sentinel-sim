@@ -102,6 +102,9 @@ const Index = () => (
         <Paragraph type="secondary" style={{ maxWidth: 700, marginBottom: 48, fontSize: 15 }}>
           Comprehensive simulation products across defence, marine & offshore domains — from standalone trainers to fully integrated multi-simulator complexes.
         </Paragraph>
+        <div style={{ marginBottom: 48, borderRadius: 12, overflow: 'hidden' }}>
+          <img src={portfolioImg} alt="ARI Simulation Portfolio" style={{ width: '100%', borderRadius: 12 }} />
+        </div>
         <Row gutter={[24, 24]}>
           {productCards.map(p => (
             <Col xs={24} sm={12} md={6} key={p.title}>
