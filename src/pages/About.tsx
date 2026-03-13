@@ -54,6 +54,14 @@ const About = () => (
             ),
           }))}
         />
+
+        <div style={{ marginTop: 80 }}>
+          <Paragraph className="accent" style={{ letterSpacing: 3, fontSize: 12, marginBottom: 8 }}>GLOBAL PRESENCE</Paragraph>
+          <Title level={3} style={{ marginBottom: 32, fontWeight: 700 }}>Worldwide Deployments</Title>
+          <div style={{ borderRadius: 12, overflow: 'hidden' }}>
+            <img src={mapImg} alt="ARI Global Deployments" style={{ width: '100%', borderRadius: 12 }} />
+          </div>
+        </div>
       </div>
     </div>
   </div>
