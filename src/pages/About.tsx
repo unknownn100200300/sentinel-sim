@@ -1,5 +1,6 @@
 import { Typography, Row, Col, Card, Timeline } from 'antd';
 import { TrophyOutlined, GlobalOutlined, SafetyCertificateOutlined, TeamOutlined } from '@ant-design/icons';
+import mapImg from '@/assets/global-map.jpg';
 
 const { Title, Paragraph, Text } = Typography;
 
