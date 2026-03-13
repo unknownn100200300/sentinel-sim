@@ -29,8 +29,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
     <Layout style={{ minHeight: '100vh' }}>
       <Header style={{ position: 'fixed', zIndex: 100, width: '100%', padding: '0 48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#B8FF57', boxShadow: '0 0 8px rgba(184,255,87,0.5)' }} />
-          <Text strong style={{ fontSize: 16, color: '#B8FF57', letterSpacing: 3, fontWeight: 700 }}>ARI SIMULATION</Text>
+          <img src={ariLogo} alt="ARI Simulation" style={{ height: 36 }} />
         </Link>
         <Menu
           theme="dark"
