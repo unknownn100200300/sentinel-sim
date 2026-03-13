@@ -120,7 +120,7 @@ body {
 }
 
 /* Sections */
-.section { padding: 96px 0; }
+.section { padding: 46px 0; }
 .section-alt { background: var(--mil-dark); }
 
 /* Accent */

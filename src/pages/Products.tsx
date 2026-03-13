@@ -1,13 +1,13 @@
-import { Typography, Row, Col, Card, Tabs, Collapse } from 'antd';
-import defenceImg from '@/assets/defence-sim.jpg';
-import marineImg from '@/assets/marine-sim.jpg';
-import offshoreImg from '@/assets/offshore-sim.jpg';
-import craneImg from '@/assets/crane-sim.jpg';
-import heroImg from '@/assets/hero-simulation.jpg';
+import { Typography, Row, Col, Card, Tabs } from 'antd';
+import { Link } from 'react-router-dom';
+import { productPath } from '@/data/products';
+import { productCategories } from '@/data/productCatalog';
 
 const { Title, Paragraph } = Typography;
 
-const categories = [
+const categories = productCategories;
+
+/*
   {
     key: 'naval', label: 'Naval Simulators', image: defenceImg,
     intro: 'Designed and built for high integration and interoperability, enabling multi-force mission training. Delivered to numerous global armed forces.',
@@ -74,6 +74,7 @@ const categories = [
     ],
   },
 ];
+*/
 
 const Products = () => (
   <div className="section">
@@ -91,16 +92,18 @@ const Products = () => (
           children: (
             <div>
               <div className="product-image-card" style={{ marginBottom: 24, borderRadius: 12, overflow: 'hidden' }}>
-                <img src={cat.image} alt={cat.label} style={{ width: '100%', height: 280, objectFit: 'cover' }} />
+                <img src={cat.image} alt={cat.label} style={{ width: '100%', height: 480, objectFit: 'cover' }} />
               </div>
               <Paragraph type="secondary" style={{ fontSize: 14, marginBottom: 24, maxWidth: 800 }}>{cat.intro}</Paragraph>
               <Row gutter={[24, 24]}>
                 {cat.products.map(p => (
                   <Col xs={24} sm={12} md={8} key={p.title}>
-                    <Card hoverable style={{ height: '100%' }}>
-                      <Title level={5} style={{ marginBottom: 8 }}>{p.title}</Title>
-                      <Paragraph type="secondary" style={{ fontSize: 13 }}>{p.desc}</Paragraph>
-                    </Card>
+                    <Link to={productPath(cat.key, p.title)} style={{ display: 'block' }}>
+                      <Card hoverable style={{ height: '100%' }}>
+                        <Title level={5} style={{ marginBottom: 8 }}>{p.title}</Title>
+                        <Paragraph type="secondary" style={{ fontSize: 13 }}>{p.desc}</Paragraph>
+                      </Card>
+                    </Link>
                   </Col>
                 ))}
               </Row>

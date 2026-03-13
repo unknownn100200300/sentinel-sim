@@ -11,8 +11,6 @@ const navItems = [
   { key: '/', label: 'Home' },
   { key: '/products', label: 'Products' },
   { key: '/industries', label: 'Industries' },
-  { key: '/technology', label: 'Technology' },
-  { key: '/about', label: 'About' },
   { key: '/contact', label: 'Contact' },
 ];
 
@@ -27,24 +25,49 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Header style={{ position: 'fixed', zIndex: 100, width: '100%', padding: '0 48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <img src={ariLogo} alt="ARI Simulation" style={{ height: 36 }} />
+      <Header
+        style={{
+          position: "fixed",
+          zIndex: 100,
+          width: "100%",
+          padding: "0 24px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        {/* Logo */}
+        <Link to="/" style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={ariLogo}
+            alt="ARI Simulation"
+            style={{ height: 140 }}
+            className="logo"
+          />
         </Link>
+
+        {/* Desktop Menu */}
         <Menu
           theme="dark"
           mode="horizontal"
           selectedKeys={[location.pathname]}
           items={menuItems}
-          style={{ flex: 1, justifyContent: 'flex-end', borderBottom: 'none', background: 'transparent' }}
           className="desktop-menu"
+          style={{
+            flex: 1,
+            justifyContent: "flex-end",
+            borderBottom: "none",
+            background: "transparent",
+          }}
         />
+
+        {/* Mobile Menu Button */}
         <Button
           type="text"
-          icon={<MenuOutlined style={{ color: '#B8FF57', fontSize: 20 }} />}
+          icon={<MenuOutlined style={{ color: "#B8FF57", fontSize: 24 }} />}
           onClick={() => setDrawerOpen(true)}
           className="mobile-menu-btn"
-          style={{ display: 'none' }}
         />
       </Header>
 
@@ -70,7 +93,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
         <Row gutter={[48, 32]}>
           <Col xs={24} md={8}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-              <img src={ariLogo} alt="ARI Simulation" style={{ height: 28 }} />
+              <img src={ariLogo} alt="ARI Simulation" style={{ height: 140 }} />
             </div>
             <Text type="secondary" style={{ fontSize: 13, lineHeight: 1.8, display: 'block' }}>
               Applied Research International Pvt. Ltd.<br />
