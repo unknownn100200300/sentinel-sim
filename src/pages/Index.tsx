@@ -163,6 +163,20 @@ const Index = () => (
       </div>
     </div>
 
+    {/* Global Deployments */}
+    <div className="section">
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px', textAlign: 'center' }}>
+        <Paragraph className="accent" style={{ letterSpacing: 3, fontSize: 12, marginBottom: 8 }}>GLOBAL PRESENCE</Paragraph>
+        <Title level={2} style={{ marginBottom: 24, fontWeight: 700 }}>Worldwide Deployments</Title>
+        <Paragraph type="secondary" style={{ maxWidth: 600, margin: '0 auto 48px', fontSize: 15 }}>
+          1300+ installations across 70+ countries spanning 6 continents.
+        </Paragraph>
+        <div style={{ borderRadius: 12, overflow: 'hidden', marginBottom: 48 }}>
+          <img src={mapImg} alt="ARI Global Deployments Map" style={{ width: '100%', borderRadius: 12 }} />
+        </div>
+      </div>
+    </div>
+
     {/* Certifications */}
     <div className="section section-alt">
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px', textAlign: 'center' }}>
@@ -171,6 +185,9 @@ const Index = () => (
         <Paragraph type="secondary" style={{ maxWidth: 600, margin: '0 auto 48px', fontSize: 15 }}>
           DNV approval for the entire range of marine & offshore simulation products. Quality certifications including ABS, LRQA, ISO 9001, ISO 14001, OHSAS, and ISMS.
         </Paragraph>
+        <div style={{ borderRadius: 12, overflow: 'hidden', marginBottom: 48 }}>
+          <img src={certsImg} alt="ARI Certifications and Accreditations" style={{ width: '100%', borderRadius: 12 }} />
+        </div>
         <Row gutter={[16, 16]} justify="center">
           {certifications.map(cert => (
             <Col key={cert}>
