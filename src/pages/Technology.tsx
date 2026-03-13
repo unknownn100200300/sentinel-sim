@@ -1,14 +1,15 @@
 import { Typography, Row, Col, Card } from 'antd';
-import { CodeOutlined, EyeOutlined, CloudOutlined, ThunderboltOutlined, ToolOutlined } from '@ant-design/icons';
+import { CodeOutlined, EyeOutlined, CloudOutlined, ThunderboltOutlined, ToolOutlined, DatabaseOutlined } from '@ant-design/icons';
 
 const { Title, Paragraph } = Typography;
 
 const techs = [
-  { icon: <ThunderboltOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Physics Simulation Engines', desc: 'High-fidelity hydrodynamic, aerodynamic, and mechanical physics models powering realistic training scenarios.' },
-  { icon: <EyeOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'XR / VR Environments', desc: 'Immersive virtual and mixed reality training environments with real-time interaction.' },
-  { icon: <CloudOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Digital Twins', desc: 'Real-time digital replicas of physical systems for monitoring and training.' },
-  { icon: <CodeOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Real-Time Visualization', desc: 'High-performance 3D rendering with dynamic environmental effects.' },
-  { icon: <ToolOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Hardware-in-the-Loop', desc: 'Integration with actual control panels, instruments, and operational equipment.' },
+  { icon: <ThunderboltOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Physics Simulation Engines', desc: 'High-fidelity hydrodynamic, aerodynamic, and mechanical physics models. Accurate fluid behavior, radar/sonar equations, and environmental modeling for realistic training scenarios.' },
+  { icon: <EyeOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'XR / VR Environments', desc: 'Immersive virtual and mixed reality environments with 360° HFOV visualization. Multi-channel visual systems integrated with motion, sound, and simulation controls.' },
+  { icon: <CloudOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Cloud-Based Training', desc: 'DNV-approved cloud simulation modules. IADC & IWCF certified for drilling & well control assessment. Fully online, hybrid, and centre-based delivery options.' },
+  { icon: <CodeOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Real-Time Visualization', desc: 'State-of-the-art 3D rendering with dynamic environmental effects, accurate coastlines, depth contours, and seabed profiles.' },
+  { icon: <ToolOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'Hardware-in-the-Loop', desc: 'Integration with actual control panels, OEM equipment, swappable replica consoles, and 6-DOF motion platforms for authentic operator interaction.' },
+  { icon: <DatabaseOutlined style={{ fontSize: 32, color: '#B8FF57' }} />, title: 'HLA & Interoperability', desc: 'High Level Architecture systems enabling multi-simulator interfacing. Defence-grade distributed simulation with recording, playback, and debrief capabilities.' },
 ];
 
 const Technology = () => (
@@ -16,8 +17,8 @@ const Technology = () => (
     <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px' }}>
       <Paragraph className="accent" style={{ letterSpacing: 3, fontSize: 12, marginBottom: 8 }}>TECHNOLOGY</Paragraph>
       <Title level={2} style={{ marginBottom: 8, fontWeight: 700 }}>Core Technologies</Title>
-      <Paragraph type="secondary" style={{ marginBottom: 48, maxWidth: 600 }}>
-        Proprietary technologies powering the next generation of simulation systems.
+      <Paragraph type="secondary" style={{ marginBottom: 48, maxWidth: 700 }}>
+        Proprietary technologies powering sophisticated simulation systems — from real-time graphics and dynamic modeling to cloud-based assessment platforms.
       </Paragraph>
       <Row gutter={[24, 24]}>
         {techs.map(t => (

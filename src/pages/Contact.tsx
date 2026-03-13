@@ -10,7 +10,7 @@ const Contact = () => (
       <Paragraph className="accent" style={{ letterSpacing: 3, fontSize: 12, marginBottom: 8 }}>CONTACT</Paragraph>
       <Title level={2} style={{ marginBottom: 8, fontWeight: 700 }}>Get in Touch</Title>
       <Paragraph type="secondary" style={{ marginBottom: 48, maxWidth: 600 }}>
-        Request a demo or discuss your simulation requirements.
+        Request a demo or discuss your simulation requirements with our team.
       </Paragraph>
 
       <Row gutter={[48, 48]}>
@@ -28,15 +28,16 @@ const Contact = () => (
               </Row>
               <Form.Item label={<Text>Industry</Text>}>
                 <Select placeholder="Select industry" options={[
-                  { value: 'defence', label: 'Defence' },
-                  { value: 'maritime', label: 'Maritime' },
-                  { value: 'oil-gas', label: 'Oil & Gas' },
-                  { value: 'port', label: 'Port & Crane' },
+                  { value: 'defence', label: 'Defence / Naval Forces' },
+                  { value: 'maritime', label: 'Maritime Academies' },
+                  { value: 'offshore', label: 'Oil & Gas / Offshore' },
+                  { value: 'port', label: 'Ports & Terminals' },
+                  { value: 'government', label: 'Government / Administration' },
                   { value: 'other', label: 'Other' },
                 ]} />
               </Form.Item>
               <Form.Item label={<Text>Message</Text>}>
-                <TextArea rows={4} placeholder="Describe your requirements..." />
+                <TextArea rows={4} placeholder="Describe your simulation requirements..." />
               </Form.Item>
               <Button type="primary" size="large" block style={{ height: 48 }}>Submit Request</Button>
             </Form>
@@ -49,9 +50,14 @@ const Contact = () => (
             <Paragraph type="secondary"><PhoneOutlined /> +91 11 41326882</Paragraph>
             <Paragraph type="secondary"><MailOutlined /> info@arisimulation.com</Paragraph>
           </Card>
-          <Card>
+          <Card style={{ marginBottom: 24 }}>
             <Title level={4}>Global Offices</Title>
-            <Paragraph type="secondary">Singapore · Dubai · London</Paragraph>
+            <Paragraph type="secondary">United States · Singapore</Paragraph>
+          </Card>
+          <Card>
+            <Title level={4}>Parent Company</Title>
+            <Paragraph type="secondary">Zen Technologies Limited</Paragraph>
+            <Paragraph type="secondary" style={{ fontSize: 13 }}>ARI Simulation is the naval and marine simulation arm of Zen Technologies.</Paragraph>
           </Card>
         </Col>
       </Row>
