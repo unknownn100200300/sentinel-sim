@@ -3,9 +3,8 @@ import { ConfigProvider, theme } from "antd";
 import AppLayout from "./components/AppLayout";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
 import Industries from "./pages/Industries";
-import Technology from "./pages/Technology";
-import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -14,7 +13,7 @@ const App = () => (
     theme={{
       algorithm: theme.darkAlgorithm,
       token: {
-        colorPrimary: '#B8FF57',
+        colorPrimary: '#0694bc',
         colorBgContainer: '#1A2B1E',
         colorBgElevated: '#223A26',
         colorBorder: '#2D3B2F',
@@ -30,9 +29,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:categoryKey/:productSlug" element={<ProductDetails />} />
           <Route path="/industries" element={<Industries />} />
-          <Route path="/technology" element={<Technology />} />
-          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
