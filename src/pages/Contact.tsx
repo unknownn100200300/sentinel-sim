@@ -49,15 +49,31 @@ const Contact = () => (
             <Paragraph type="secondary"><EnvironmentOutlined /> New Delhi, India</Paragraph>
             <Paragraph type="secondary"><PhoneOutlined /> +91 11 41326882</Paragraph>
             <Paragraph type="secondary"><MailOutlined /> info@arisimulation.com</Paragraph>
-          </Card>
-          <Card style={{ marginBottom: 24 }}>
-            <Title level={4}>Global Offices</Title>
-            <Paragraph type="secondary">United States · Singapore</Paragraph>
+
+            <Paragraph style={{ marginTop: 16, marginBottom: 8 }}>
+              <Text strong>MUMBAI - Branch Office</Text>
+            </Paragraph>
+            <Paragraph type="secondary">
+              <EnvironmentOutlined /> B-510, BSELTECH Park (5th Floor), Sector-30-A,
+              <br />
+              Vashi, Navi Mumbai-400705
+            </Paragraph>
           </Card>
           <Card>
-            <Title level={4}>Parent Company</Title>
-            <Paragraph type="secondary">Zen Technologies Limited</Paragraph>
-            <Paragraph type="secondary" style={{ fontSize: 13 }}>ARI Simulation is the naval and marine simulation arm of Zen Technologies.</Paragraph>
+            <Title level={4}>Global Offices</Title>
+
+            <Paragraph style={{ marginBottom: 8 }}><Text strong>USA</Text></Paragraph>
+            <Paragraph type="secondary" style={{ marginBottom: 4 }}>
+              <EnvironmentOutlined /> Bishop Ranch 3, 2603 Camino Ramon, Suite 200, San Ramon, California, 94583, USA.
+            </Paragraph>
+            <Paragraph type="secondary" style={{ marginBottom: 4 }}><PhoneOutlined /> +1 408 338 6093</Paragraph>
+            <Paragraph type="secondary"><MailOutlined /> ariusa@arisimulation.com</Paragraph>
+
+            <Paragraph style={{ marginTop: 16, marginBottom: 8 }}><Text strong>Singapore</Text></Paragraph>
+            <Paragraph type="secondary" style={{ marginBottom: 4 }}>
+              <EnvironmentOutlined /> 14 Robinson Road, #08-01A, Far East Finance Building, Singapore 048545
+            </Paragraph>
+            <Paragraph type="secondary"><MailOutlined /> arisingapore@arisimulation.com</Paragraph>
           </Card>
         </Col>
       </Row>
