@@ -4,11 +4,11 @@
 
 :root {
   /* Military palette */
-  --mil-black: #0F1412;
-  --mil-dark: #1B2A1F;
-  --mil-olive: #3A4F3B;
+  --mil-black: #0B1E2D;
+  --mil-dark: #122A3A;
+  --mil-olive: #1F3D4E;
   --mil-steel: #6B7280;
-  --mil-accent: #B8FF57;
+  --mil-accent: #0694bc;
   --mil-amber: #D4A843;
   --mil-text: #E5E7EB;
   --mil-text-muted: #9CA3AF;
@@ -38,7 +38,7 @@ body {
   border-top: 1px solid var(--mil-border);
 }
 .ant-menu-dark { background: transparent !important; }
-.ant-menu-dark .ant-menu-item-selected { background: rgba(184, 255, 87, 0.1) !important; }
+.ant-menu-dark .ant-menu-item-selected { background: rgba(6, 148, 188, 0.15) !important; }
 
 .ant-card {
   background: var(--mil-card) !important;
@@ -66,7 +66,7 @@ body {
   transition: all 0.3s !important;
 }
 .ant-btn-primary:hover {
-  background: #a0e64a !important;
+  background: #057a9b   !important;
   transform: translateY(-1px);
   box-shadow: 0 4px 20px rgba(184, 255, 87, 0.3) !important;
 }
@@ -105,7 +105,7 @@ body {
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.35);
+  /* filter: brightness(0.5); */
 }
 .hero-overlay {
   position: absolute;

@@ -62,30 +62,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
           }}
         />
 
-        {/* Mobile Menu Button */}
-        <Button
-          type="text"
-          icon={<MenuOutlined style={{ color: "#B8FF57", fontSize: 24 }} />}
-          onClick={() => setDrawerOpen(true)}
-          className="mobile-menu-btn"
-        />
       </Header>
-
-      <Drawer
-        placement="right"
-        onClose={() => setDrawerOpen(false)}
-        open={drawerOpen}
-        styles={{ body: { background: '#0F1412', padding: 0 }, header: { background: '#0F1412', borderBottom: '1px solid #2D3B2F' } }}
-      >
-        <Menu
-          theme="dark"
-          mode="vertical"
-          selectedKeys={[location.pathname]}
-          items={menuItems}
-          onClick={() => setDrawerOpen(false)}
-          style={{ background: 'transparent', borderRight: 'none' }}
-        />
-      </Drawer>
 
       <Content style={{ marginTop: 64 }}>{children}</Content>
 

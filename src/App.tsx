@@ -13,7 +13,7 @@ const App = () => (
     theme={{
       algorithm: theme.darkAlgorithm,
       token: {
-        colorPrimary: '#B8FF57',
+        colorPrimary: '#0694bc',
         colorBgContainer: '#1A2B1E',
         colorBgElevated: '#223A26',
         colorBorder: '#2D3B2F',

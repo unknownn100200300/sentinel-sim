@@ -6,7 +6,7 @@ import defenceImg from '@/assets/DefenceBridge.jpg';
 import marineImg from '@/assets/Navigation Simulator.jpg';
 import offshoreImg from '@/assets/Offshore Simulator.jpg';
 import craneImg from '@/assets/PortsTerminals.jpg';
-import portfolioImg from '@/assets/portfolio.jpg';
+import portfolioImg from '@/assets/heroSectionImg.jpg';
 import mapImg from '@/assets/global-map.jpg';
 import certsImg from '@/assets/certifications.jpg';
 import OurClientsSection from '@/components/OurClientsSection';
@@ -55,11 +55,6 @@ const Index = () => (
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px', position: 'relative', zIndex: 1, width: '100%' }}>
         <Row align="middle">
           <Col xs={24} md={16}>
-            {/* <div className="animate-fade-up">
-              <Paragraph style={{ color: '#B8FF57', letterSpacing: 4, fontSize: 12, fontWeight: 600, marginBottom: 20 }}>
-                A SUBSIDIARY OF ZEN TECHNOLOGIES
-              </Paragraph>
-            </div> */}
             <div className="animate-fade-up-delay-1">
               <Title style={{ fontSize: 52, lineHeight: 1.08, marginBottom: 24, fontWeight: 800, letterSpacing: -1 }}>
                 High-Fidelity Simulation<br />
@@ -130,15 +125,15 @@ const Index = () => (
         <Paragraph type="secondary" style={{ maxWidth: 700, marginBottom: 48, fontSize: 15 }}>
           Comprehensive simulation products across defence, marine & offshore domains — from standalone trainers to fully integrated multi-simulator complexes.
         </Paragraph>
-<div style={{ marginBottom: 38, borderRadius: 12, overflow: 'hidden' }}>
+<div style={{ marginBottom: 38, borderRadius: 12, overflow: "hidden" }}>
   <img
     src={portfolioImg}
     alt="ARI Simulation Portfolio"
-    style={{ 
-      width: "100%", 
-      height: 360,
-      objectFit: "cover",
-      borderRadius: 12 
+    style={{
+      width: "100%",
+      height: "auto",   // important
+      display: "block",
+      borderRadius: 12
     }}
   />
 </div>

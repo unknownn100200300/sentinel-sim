@@ -1,5 +1,6 @@
 import { Typography } from "antd";
 import { Link, useParams } from "react-router-dom";
+import NavalBridgeOperationsDetail from "@/components/NavalBridgeOperationsDetail";
 import { getProductDetailByRoute } from "@/data/productDetailsCatalog";
 import NotFound from "./NotFound";
 
@@ -10,6 +11,8 @@ const ProductDetails = () => {
   const product = getProductDetailByRoute(categoryKey, productSlug);
 
   if (!product) return <NotFound />;
+
+  const isNavalBridgeOperations = product.title === "Naval Bridge Operations Simulator";
 
   return (
     <div className="section">
@@ -30,9 +33,14 @@ const ProductDetails = () => {
         <Title level={2} style={{ marginBottom: 12, fontWeight: 700 }}>
           {product.title}
         </Title>
-        <Paragraph type="secondary" style={{ fontSize: 15, lineHeight: 1.8, maxWidth: 900, whiteSpace: "pre-line" }}>
-          {product.description}
-        </Paragraph>
+
+        {isNavalBridgeOperations ? (
+          <NavalBridgeOperationsDetail />
+        ) : (
+          <Paragraph type="secondary" style={{ fontSize: 15, lineHeight: 1.8, maxWidth: 900, whiteSpace: "pre-line" }}>
+            {product.description}
+          </Paragraph>
+        )}
       </div>
     </div>
   );
