@@ -116,26 +116,17 @@ const techHighlights = [
   },
 ];
 
-const certifications = ["DNV GL", "ABS", "LRQA", "IMO STCW", "IADC", "IWCF", "ISO 9001", "ISO 14001"];
 
 const Index = () => (
   <div>
     <section className="hero-section">
       <div className="hero-bg" style={{ backgroundImage: `url(${heroImg})` }} />
       <div className="hero-overlay" />
-      <div className="hero-scanline" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
             <div className="animate-fade-up-delay-1">
-              <div className="mb-5 flex flex-wrap items-center gap-2">
-                <Badge variant="secondary" className="border-border/60 bg-muted/30">
-                  Defence-tech training systems
-                </Badge>
-                <span className="text-xs uppercase tracking-[0.28em] text-muted-foreground">High-fidelity simulation</span>
-              </div>
-
               <h1 className="heading-balance text-4xl md:text-[54px] leading-[1.05] font-extrabold tracking-[-0.03em] mb-6">
                 High-Fidelity Simulation
                 <br />
@@ -144,7 +135,7 @@ const Index = () => (
             </div>
 
             <div className="animate-fade-up-delay-2">
-              <p className="text-sm md:text-base text-muted-foreground max-w-[560px] mb-10 leading-relaxed">
+              <p className="text-sm md:text-base text-muted-foreground max-w-[560px] mb-10 leading-relaxed ">
                 Global leader in sophisticated simulation and virtual reality training solutions for defence, marine &
                 offshore industries. Over 26 years of expertise with 1300+ installations worldwide.
               </p>
@@ -164,46 +155,6 @@ const Index = () => (
             </div>
           </div>
 
-          <div className="hidden lg:block animate-fade-left">
-            <Card className="border-border/60 bg-card/35 backdrop-blur">
-              <CardContent className="p-7">
-                <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">At a glance</p>
-                <h2 className="heading-balance mt-3 text-2xl font-semibold tracking-tight">
-                  Training platforms built for realism, repeatability, and readiness.
-                </h2>
-
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  {stats.map((stat) => (
-                    <div key={stat.label} className="rounded-lg border border-border/60 bg-background/20 px-4 py-3">
-                      <div className="text-lg font-semibold tracking-tight text-foreground">{stat.value}</div>
-                      <div className="mt-1 text-xs text-muted-foreground leading-snug">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 grid gap-3">
-                  <div className="flex items-start gap-3 rounded-lg border border-border/60 bg-background/10 px-4 py-3">
-                    <ShieldCheck className="mt-0.5 h-5 w-5 text-accent" />
-                    <div>
-                      <p className="text-sm font-medium">Defence-grade interoperability</p>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        Distributed simulation with recording, playback, and debrief workflows.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 rounded-lg border border-border/60 bg-background/10 px-4 py-3">
-                    <Rocket className="mt-0.5 h-5 w-5 text-accent" />
-                    <div>
-                      <p className="text-sm font-medium">High-fidelity physics & visuals</p>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        Real-time rendering with dynamic environments and accurate models.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </div>
     </section>
@@ -345,14 +296,6 @@ const Index = () => (
 
         <div className="mb-10 overflow-hidden rounded-xl border border-border/60">
           <img src={certsImg} alt="ARI Certifications and Accreditations" className="w-full" />
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-2">
-          {certifications.map((cert) => (
-            <Badge key={cert} variant="secondary" className="border-border/60 bg-muted/30">
-              {cert}
-            </Badge>
-          ))}
         </div>
       </div>
     </section>

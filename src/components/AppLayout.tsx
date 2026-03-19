@@ -32,9 +32,9 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
                 to={item.key}
                 className={({ isActive }) =>
                   cn(
-                    "rounded-md px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition-colors",
+                    "rounded-md px-3 py-2 text-xs suppercase tracking-[0.18em] transition-colors",
                     isActive
-                      ? "bg-accent/20 text-accent"
+                      ? "bg-accent/20 text-white"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent/10",
                   )
                 }

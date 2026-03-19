@@ -13,13 +13,13 @@
   --mil-text: #E5E7EB;
   --mil-text-muted: #9CA3AF;
   --mil-border: #2D3B2F;
-  --mil-card: #1A2B1E;
-  --mil-card-hover: #223A26;
+  --mil-card: #ad962c;
+  --mil-card-hover: #99cf1a;
 
   /* shadcn/ui theme tokens (HSL) */
   --background: 206 61% 11%;
   --foreground: 220 13% 91%;
-  --card: 134 25% 14%;
+  --card: 134 25% 4%;
   --card-foreground: 220 13% 91%;
   --popover: 134 25% 14%;
   --popover-foreground: 220 13% 91%;
@@ -76,7 +76,6 @@ body {
   inset: 0;
   background-size: cover;
   background-position: center;
-  /* filter: brightness(0.5); */
 }
 .hero-overlay {
   position: absolute;
@@ -87,18 +86,6 @@ body {
     hsl(var(--card) / 0.6) 50%,
     hsl(var(--background) / 0.85) 100%
   );
-}
-.hero-scanline {
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    hsl(var(--primary) / 0.02) 2px,
-    hsl(var(--primary) / 0.02) 4px
-  );
-  pointer-events: none;
 }
 
 /* Sections */
