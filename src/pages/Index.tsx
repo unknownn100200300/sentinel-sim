@@ -1,222 +1,320 @@
-import { Typography, Button, Row, Col, Card, Space } from 'antd';
-import { ArrowRightOutlined, GlobalOutlined, SafetyCertificateOutlined, ExperimentOutlined, TeamOutlined, AimOutlined, RocketOutlined, CloudOutlined, CodeOutlined, ToolOutlined, DatabaseOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
-import heroImg from '@/assets/hero-simulation.jpg';
-import defenceImg from '@/assets/DefenceBridge.jpg';
-import marineImg from '@/assets/Navigation Simulator.jpg';
-import offshoreImg from '@/assets/Offshore Simulator.jpg';
-import craneImg from '@/assets/PortsTerminals.jpg';
-import portfolioImg from '@/assets/heroSectionImg.jpg';
-import mapImg from '@/assets/global-map.jpg';
-import certsImg from '@/assets/certifications.jpg';
-import OurClientsSection from '@/components/OurClientsSection';
+import {
+  ArrowRight,
+  Cloud,
+  Code,
+  Crosshair,
+  Database,
+  FlaskConical,
+  Globe,
+  Rocket,
+  ShieldCheck,
+  Users,
+  Wrench,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
-const { Title, Paragraph, Text } = Typography;
+import OurClientsSection from "@/components/OurClientsSection";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import heroImg from "@/assets/hero-simulation.jpg";
+import defenceImg from "@/assets/DefenceBridge.jpg";
+import marineImg from "@/assets/Navigation Simulator.jpg";
+import offshoreImg from "@/assets/Offshore Simulator.jpg";
+import craneImg from "@/assets/PortsTerminals.jpg";
+import portfolioImg from "@/assets/heroSectionImg.jpg";
+import mapImg from "@/assets/global-map.jpg";
+import certsImg from "@/assets/certifications.jpg";
 
 const stats = [
-  { value: '1300+', label: 'Installations Worldwide' },
-  { value: '26+', label: 'Years of Expertise' },
-  { value: '55+', label: 'Copyrights & Patents' },
-  { value: '75K+', label: 'Certificates Generated' },
+  { value: "1300+", label: "Installations Worldwide" },
+  { value: "26+", label: "Years of Expertise" },
+  { value: "55+", label: "Copyrights & Patents" },
+  { value: "75K+", label: "Certificates Generated" },
 ];
 
 const industries = [
-  { icon: <AimOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Defence', desc: 'Naval warfare, anti-drone, submarine, and tactical combat training systems.' },
-  { icon: <GlobalOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Maritime', desc: 'Navigation, engine room, cargo handling, and GMDSS simulation.' },
-  { icon: <ExperimentOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Offshore', desc: 'DP, anchor handling, ROV, and offshore bridge simulation.' },
-  { icon: <TeamOutlined style={{ fontSize: 28, color: '#B8FF57' }} />, title: 'Ports & Cranes', desc: 'QC, RTG, RMG, mobile crane, and terminal operations training.' },
+  {
+    icon: Crosshair,
+    title: "Defence",
+    desc: "Naval warfare, anti-drone, submarine, and tactical combat training systems.",
+  },
+  {
+    icon: Globe,
+    title: "Maritime",
+    desc: "Navigation, engine room, cargo handling, and GMDSS simulation.",
+  },
+  {
+    icon: FlaskConical,
+    title: "Offshore",
+    desc: "DP, anchor handling, ROV, and offshore bridge simulation.",
+  },
+  {
+    icon: Users,
+    title: "Ports & Cranes",
+    desc: "QC, RTG, RMG, mobile crane, and terminal operations training.",
+  },
 ];
 
 const productCards = [
-  { img: defenceImg, title: 'Defence Simulation', tag: 'DEFENCE', desc: 'Naval bridge, submarine, CIC, ASTT, FAC & cyber warfare simulators.' },
-  { img: marineImg, title: 'Marine & Logistics', tag: 'MARITIME', desc: 'Navigation, engine room, cargo handling & VTS simulators.' },
-  { img: offshoreImg, title: 'Offshore Simulation', tag: 'OFFSHORE', desc: 'DP, anchor handling, offshore bridge & ROV simulators.' },
-  { img: craneImg, title: 'Ports & Terminals', tag: 'INDUSTRIAL', desc: 'QC, RTG, RMG, pedestal, straddle carrier & mobile crane simulators.' },
+  {
+    img: defenceImg,
+    title: "Defence Simulation",
+    tag: "DEFENCE",
+    desc: "Naval bridge, submarine, CIC, ASTT, FAC & cyber warfare simulators.",
+  },
+  {
+    img: marineImg,
+    title: "Marine & Logistics",
+    tag: "MARITIME",
+    desc: "Navigation, engine room, cargo handling & VTS simulators.",
+  },
+  {
+    img: offshoreImg,
+    title: "Offshore Simulation",
+    tag: "OFFSHORE",
+    desc: "DP, anchor handling, offshore bridge & ROV simulators.",
+  },
+  {
+    img: craneImg,
+    title: "Ports & Terminals",
+    tag: "INDUSTRIAL",
+    desc: "QC, RTG, RMG, pedestal, straddle carrier & mobile crane simulators.",
+  },
 ];
 
 const techHighlights = [
-  { icon: <RocketOutlined style={{ fontSize: 24, color: '#B8FF57' }} />, title: 'Physics Engines', desc: 'High-fidelity hydrodynamic, aerodynamic, and mechanical models.' },
-  { icon: <SafetyCertificateOutlined style={{ fontSize: 24, color: '#B8FF57' }} />, title: 'XR / VR Training', desc: 'Immersive virtual and mixed reality training environments.' },
-  { icon: <CloudOutlined style={{ fontSize: 24, color: '#B8FF57' }} />, title: 'Cloud Simulation', desc: 'DNV-approved cloud-based simulation training and assessment.' },
-  { icon: <CodeOutlined style={{ fontSize: 24, color: '#B8FF57' }} />, title: 'Real-Time Visualization', desc: 'State-of-the-art 3D rendering with dynamic environmental effects, accurate coastlines, depth contours, and seabed profiles.' },
-  { icon: <ToolOutlined style={{ fontSize: 24, color: '#B8FF57' }} />, title: 'Hardware-in-the-Loop', desc: 'Integration with actual control panels, OEM equipment, swappable replica consoles, and 6-DOF motion platforms for authentic operator interaction.' },
-  { icon: <DatabaseOutlined style={{ fontSize: 24, color: '#B8FF57' }} />, title: 'HLA & Interoperability', desc: 'Defence-grade distributed simulation supporting multi-simulator interoperability with recording and playback and comprehensive debrief tools.' },
+  {
+    icon: Rocket,
+    title: "Physics Engines",
+    desc: "High-fidelity hydrodynamic, aerodynamic, and mechanical models.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "XR / VR Training",
+    desc: "Immersive virtual and mixed reality training environments.",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Simulation",
+    desc: "DNV-approved cloud-based simulation training and assessment.",
+  },
+  {
+    icon: Code,
+    title: "Real-Time Visualization",
+    desc: "State-of-the-art 3D rendering with dynamic environmental effects, accurate coastlines, depth contours, and seabed profiles.",
+  },
+  {
+    icon: Wrench,
+    title: "Hardware-in-the-Loop",
+    desc: "Integration with actual control panels, OEM equipment, swappable replica consoles, and 6-DOF motion platforms for authentic operator interaction.",
+  },
+  {
+    icon: Database,
+    title: "HLA & Interoperability",
+    desc: "Defence-grade distributed simulation supporting multi-simulator interoperability with recording and playback and comprehensive debrief tools.",
+  },
 ];
 
-const certifications = ['DNV GL', 'ABS', 'LRQA', 'IMO STCW', 'IADC', 'IWCF', 'ISO 9001', 'ISO 14001'];
 
 const Index = () => (
   <div>
-    {/* Hero */}
-    <div className="hero-section">
+    <section className="hero-section">
       <div className="hero-bg" style={{ backgroundImage: `url(${heroImg})` }} />
       <div className="hero-overlay" />
-      <div className="hero-scanline" />
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px', position: 'relative', zIndex: 1, width: '100%' }}>
-        <Row align="middle">
-          <Col xs={24} md={16}>
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div>
             <div className="animate-fade-up-delay-1">
-              <Title style={{ fontSize: 52, lineHeight: 1.08, marginBottom: 24, fontWeight: 800, letterSpacing: -1 }}>
-                High-Fidelity Simulation<br />
+              <h1 className="heading-balance text-4xl md:text-[54px] leading-[1.05] font-extrabold tracking-[-0.03em] mb-6">
+                High-Fidelity Simulation
+                <br />
                 for <span className="accent">Mission-Critical</span> Training
-              </Title>
+              </h1>
             </div>
+
             <div className="animate-fade-up-delay-2">
-              <Paragraph style={{ fontSize: 17, color: '#9CA3AF', maxWidth: 560, marginBottom: 40, lineHeight: 1.7 }}>
-                Global leader in sophisticated simulation and virtual reality training solutions for defence, marine & offshore industries. Over 26 years of expertise with 1300+ installations worldwide.
-              </Paragraph>
+              <p className="text-sm md:text-base text-muted-foreground max-w-[560px] mb-10 leading-relaxed ">
+                Global leader in sophisticated simulation and virtual reality training solutions for defence, marine &
+                offshore industries. Over 26 years of expertise with 1300+ installations worldwide.
+              </p>
             </div>
-            <div className="animate-fade-up-delay-3">
-              <Space size="middle">
-                <Link to="/contact"><Button type="primary" size="large" style={{ height: 48, paddingInline: 32 }}>Request Demo <ArrowRightOutlined /></Button></Link>
-                <Link to="/products"><Button size="large" style={{ height: 48, paddingInline: 32 }}>Explore Products</Button></Link>
-              </Space>
+
+            <div className="animate-fade-up-delay-3 flex flex-wrap gap-3">
+              <Link to="/contact">
+                <Button className="h-12 px-8">
+                  Request Demo <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link to="/products">
+                <Button variant="outline" className="h-12 px-8">
+                  Explore Products
+                </Button>
+              </Link>
             </div>
-          </Col>
-        </Row>
-      </div>
-    </div>
-{/* About ARI */}
-<div className="section">
-  <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px' }}>
-    <Title level={2} style={{ marginBottom: 24, fontWeight: 700 }}>
-      About ARI Simulation
-    </Title>
+          </div>
 
-    <Paragraph
-      type="secondary"
-      style={{
-        fontSize: 16,
-        lineHeight: 1.8,
-        maxWidth: 900
-      }}
-    >
-      Applied Research International (ARI), the naval and marine simulation arm of 
-      Zen Technologies Limited, is a global leader in sophisticated simulation and 
-      virtual reality training solutions for the defence, marine & offshore industries. 
-      With over 26 years of expertise in advanced simulation — including real-time 
-      graphics, virtual/augmented reality, and dynamic modeling — ARI serves millions 
-      of users across 1300+ physical installations and cloud-based solutions.
-    </Paragraph>
-
-  </div>
-</div>
-    {/* Stats */}
-    <div className="section section-alt">
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px' }}>
-        <Row gutter={[32, 48]}>
-          {stats.map((s, i) => (
-            <Col xs={12} md={6} key={s.label}>
-              <div style={{ textAlign: 'center' }} className={`animate-fade-up-delay-${i % 4}`}>
-                <div className="stat-value">{s.value}</div>
-                <Paragraph type="secondary" style={{ marginTop: 8, fontSize: 13, letterSpacing: 1 }}>{s.label.toUpperCase()}</Paragraph>
-              </div>
-            </Col>
-          ))}
-        </Row>
-      </div>
-    </div>
-
-    {/* Portfolio */}
-    <div className="section grid-bg">
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px' }}>
-        <Paragraph className="accent" style={{ letterSpacing: 3, fontSize: 12, marginBottom: 8 }}>PORTFOLIO</Paragraph>
-        <Title level={2} style={{ marginBottom: 16, fontWeight: 700 }}>Simulation Suites</Title>
-        <Paragraph type="secondary" style={{ maxWidth: 700, marginBottom: 48, fontSize: 15 }}>
-          Comprehensive simulation products across defence, marine & offshore domains — from standalone trainers to fully integrated multi-simulator complexes.
-        </Paragraph>
-<div style={{ marginBottom: 38, borderRadius: 12, overflow: "hidden" }}>
-  <img
-    src={portfolioImg}
-    alt="ARI Simulation Portfolio"
-    style={{
-      width: "100%",
-      height: "auto",   // important
-      display: "block",
-      borderRadius: 12
-    }}
-  />
-</div>
-        <Row gutter={[24, 24]}>
-          {productCards.map(p => (
-            <Col xs={24} sm={12} md={6} key={p.title}>
-              <div className="product-image-card">
-                <img src={p.img} alt={p.title} />
-                <div className="overlay">
-                  <Paragraph className="accent" style={{ fontSize: 11, letterSpacing: 2, marginBottom: 4 }}>{p.tag}</Paragraph>
-                  <Title level={5} style={{ margin: 0, fontSize: 14 }}>{p.title}</Title>
-                  <Paragraph type="secondary" style={{ fontSize: 12, marginBottom: 0, marginTop: 4 }}>{p.desc}</Paragraph>
-                </div>
-              </div>
-            </Col>
-          ))}
-        </Row>
-        <div style={{ textAlign: 'center', marginTop: 48 }}>
-          <Link to="/products"><Button type="primary" size="large">View All Products <ArrowRightOutlined /></Button></Link>
         </div>
       </div>
-    </div>
+    </section>
 
-    {/* Technology */}
-    <div className="section">
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px' }}>
-        <Paragraph className="accent" style={{ letterSpacing: 3, fontSize: 12, marginBottom: 8 }}>TECHNOLOGY</Paragraph>
-        <Title level={2} style={{ marginBottom: 48, fontWeight: 700 }}>Core Technologies</Title>
-        <Row gutter={[24, 24]}>
-          {techHighlights.map(t => (
-            <Col xs={24} md={8} key={t.title}>
-              <Card hoverable>
-                <div style={{ marginBottom: 12 }}>{t.icon}</div>
-                <Title level={4}>{t.title}</Title>
-                <Paragraph type="secondary" style={{ fontSize: 13 }}>{t.desc}</Paragraph>
+    <section className="section">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 className="heading-balance text-3xl md:text-4xl font-bold tracking-tight mb-6">About ARI Simulation</h2>
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-3xl">
+          Applied Research International (ARI), the naval and marine simulation arm of Zen Technologies Limited, is a
+          global leader in sophisticated simulation and virtual reality training solutions for the defence, marine &
+          offshore industries. With over 26 years of expertise in advanced simulation — including real-time graphics,
+          virtual/augmented reality, and dynamic modeling — ARI serves millions of users across 1300+ physical
+          installations and cloud-based solutions.
+        </p>
+      </div>
+    </section>
+
+    <section className="section section-alt">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          {stats.map((stat, index) => (
+            <div key={stat.label} className={`text-center animate-fade-up-delay-${index % 4}`}>
+              <div className="stat-value">{stat.value}</div>
+              <p className="mt-2 text-xs tracking-wide text-muted-foreground">{stat.label.toUpperCase()}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <p className="accent text-xs tracking-[0.35em] mb-2">INDUSTRIES</p>
+        <h2 className="heading-balance text-3xl md:text-4xl font-bold tracking-tight mb-10">Where We Deliver</h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {industries.map((industry) => {
+            const Icon = industry.icon;
+            return (
+              <Card
+                key={industry.title}
+                className="border-border/60 bg-card/60 transition-all hover:-translate-y-1 hover:shadow-lg"
+              >
+                <CardContent className="p-6">
+                  <Icon className="h-7 w-7 text-accent mb-4" />
+                  <h3 className="text-base font-semibold mb-2">{industry.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{industry.desc}</p>
+                </CardContent>
               </Card>
-            </Col>
+            );
+          })}
+        </div>
+
+        <div className="mt-8">
+          <Link to="/industries">
+            <Button variant="outline">Explore Industries</Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+
+    <section className="section grid-bg">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <p className="accent text-xs tracking-[0.35em] mb-2">PORTFOLIO</p>
+        <h2 className="heading-balance text-3xl md:text-4xl font-bold tracking-tight mb-4">Simulation Suites</h2>
+        <p className="text-sm md:text-base text-muted-foreground max-w-2xl mb-10 leading-relaxed">
+          Comprehensive simulation products across defence, marine & offshore domains — from standalone trainers to fully
+          integrated multi-simulator complexes.
+        </p>
+
+        <div className="mb-10 overflow-hidden rounded-xl border border-border/60">
+          <img src={portfolioImg} alt="ARI Simulation Portfolio" className="block h-auto w-full" />
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+          {productCards.map((product) => (
+            <div key={product.title} className="product-image-card ring-1 ring-border/60">
+              <img src={product.img} alt={product.title} />
+              <div className="overlay">
+                <p className="accent text-[11px] tracking-[0.25em] mb-1">{product.tag}</p>
+                <p className="text-sm font-semibold m-0">{product.title}</p>
+                <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{product.desc}</p>
+              </div>
+            </div>
           ))}
-        </Row>
-      </div>
-    </div>
+        </div>
 
-    {/* Global Deployments */}
-    <div className="section">
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px', textAlign: 'center' }}>
-        <Paragraph className="accent" style={{ letterSpacing: 3, fontSize: 12, marginBottom: 8 }}>GLOBAL PRESENCE</Paragraph>
-        <Title level={2} style={{ marginBottom: 24, fontWeight: 700 }}>Worldwide Deployments</Title>
-        <Paragraph type="secondary" style={{ maxWidth: 600, margin: '0 auto 48px', fontSize: 15 }}>
+        <div className="mt-12 text-center">
+          <Link to="/products">
+            <Button className="h-11 px-6">
+              View All Products <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <p className="accent text-xs tracking-[0.35em] mb-2">TECHNOLOGY</p>
+        <h2 className="heading-balance text-3xl md:text-4xl font-bold tracking-tight mb-10">Core Technologies</h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {techHighlights.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Card key={item.title} className="border-border/60 bg-card/60 transition-all hover:-translate-y-1 hover:shadow-lg">
+                <CardContent className="p-6">
+                  <Icon className="h-6 w-6 text-accent mb-3" />
+                  <h3 className="text-base font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+        <p className="accent text-xs tracking-[0.35em] mb-2">GLOBAL PRESENCE</p>
+        <h2 className="heading-balance text-3xl md:text-4xl font-bold tracking-tight mb-4">Worldwide Deployments</h2>
+        <p className="mx-auto max-w-xl text-sm md:text-base text-muted-foreground mb-10 leading-relaxed">
           1300+ installations across 60+ countries.
-        </Paragraph>
-        <div style={{ borderRadius: 12, overflow: 'hidden', marginBottom: 48 }}>
-          <img src={mapImg} alt="ARI Global Deployments Map" style={{ width: '100%', borderRadius: 12 }} />
+        </p>
+        <div className="overflow-hidden rounded-xl border border-border/60">
+          <img src={mapImg} alt="ARI Global Deployments Map" className="w-full" />
         </div>
       </div>
-    </div>
+    </section>
 
-    {/* Certifications */}
-    <div className="section section-alt">
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px', textAlign: 'center' }}>
-        <Paragraph className="accent" style={{ letterSpacing: 3, fontSize: 12, marginBottom: 8 }}>APPROVALS & ACCREDITATIONS</Paragraph>
-        <Title level={2} style={{ marginBottom: 24, fontWeight: 700 }}>Globally Certified</Title>
-        <Paragraph type="secondary" style={{ maxWidth: 600, margin: '0 auto 48px', fontSize: 15 }}>
-          DNV approval for the entire range of marine & offshore simulation products. Quality certifications including ABS, LRQA, ISO 9001, ISO 14001, OHSAS, and ISMS.
-        </Paragraph>
-        <div style={{ borderRadius: 12, overflow: 'hidden', marginBottom: 48 }}>
-          <img src={certsImg} alt="ARI Certifications and Accreditations" style={{ width: '100%', borderRadius: 12 }} />
+    <section className="section section-alt">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+        <p className="accent text-xs tracking-[0.35em] mb-2">APPROVALS & ACCREDITATIONS</p>
+        <h2 className="heading-balance text-3xl md:text-4xl font-bold tracking-tight mb-4">Globally Certified</h2>
+        <p className="mx-auto max-w-2xl text-sm md:text-base text-muted-foreground mb-10 leading-relaxed">
+          DNV approval for the entire range of marine & offshore simulation products. Quality certifications including
+          ABS, LRQA, ISO 9001, ISO 14001, OHSAS, and ISMS.
+        </p>
+
+        <div className="mb-10 overflow-hidden rounded-xl border border-border/60">
+          <img src={certsImg} alt="ARI Certifications and Accreditations" className="w-full" />
         </div>
-
       </div>
-    </div>
+    </section>
 
     <OurClientsSection />
 
-    {/* CTA */}
-    <div className="section" style={{ textAlign: 'center' }}>
-      <div style={{ maxWidth: 600, margin: '0 auto', padding: '0 48px' }}>
-        <Title level={2} style={{ fontWeight: 700 }}>Ready to Elevate Your Training?</Title>
-        <Paragraph type="secondary" style={{ fontSize: 16, marginBottom: 32 }}>
+    <section className="section text-center">
+      <div className="mx-auto max-w-2xl px-6 lg:px-8">
+        <h2 className="heading-balance text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          Ready to Elevate Your Training?
+        </h2>
+        <p className="text-sm md:text-base text-muted-foreground mb-8 leading-relaxed">
           Contact us for a customized demonstration of our simulation systems.
-        </Paragraph>
-        <Link to="/contact"><Button type="primary" size="large" style={{ height: 48, paddingInline: 40 }}>Request a Demo</Button></Link>
+        </p>
+        <Link to="/contact">
+          <Button className="h-12 px-10">Request a Demo</Button>
+        </Link>
       </div>
-    </div>
+    </section>
   </div>
 );
 
