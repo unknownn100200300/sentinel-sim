@@ -1,5 +1,5 @@
 import defenceImg from "@/assets/NavalSimulation.jpg";
-import marineImg from "@/assets/MarineLogistic.jpeg";
+import marineImg from "@/assets/maritime-page.jpeg";
 import offshoreImg from "@/assets/Offshore Simulator-1.jpg";
 import craneImg from "@/assets/PortsTerminals.jpg";
 import heroImg from "@/assets/Cloud.jpg";

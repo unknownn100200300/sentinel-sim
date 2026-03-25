@@ -4,6 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import { getProductDetailByRoute, navalBridgeSections } from "@/data/productDetailsCatalog";
 import NotFound from "./NotFound";
 
+const backRouteByCategory: Record<string, string> = {
+  naval: "/defence",
+  marine: "/maritime",
+};
+
 const ProductDetails = () => {
   const { categoryKey, productSlug } = useParams();
   const product = getProductDetailByRoute(categoryKey, productSlug);
@@ -11,11 +16,12 @@ const ProductDetails = () => {
   if (!product) return <NotFound />;
 
   const isNavalBridgeOperations = product.title === "Naval Bridge Operations Simulator";
+  const backRoute = backRouteByCategory[product.categoryKey] ?? "/products";
 
   return (
     <div className="section">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <Link to="/products" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        <Link to={backRoute} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
           <ChevronLeft className="h-4 w-4" />
           Back to Products
         </Link>

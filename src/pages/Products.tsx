@@ -1,58 +1,172 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { productPath } from "@/data/products";
 import { productCategories } from "@/data/productCatalog";
 
-const Products = () => (
-  <div className="section">
-    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-      <p className="accent text-xs tracking-[0.35em] mb-2">PRODUCTS</p>
-      <h1 className="heading-balance text-3xl md:text-4xl font-bold tracking-tight mb-2">Simulation Systems</h1>
-      <p className="text-muted-foreground mb-10 max-w-2xl text-sm md:text-base leading-relaxed">
-        ARI offers sophisticated simulator products for armed forces, maritime academies, offshore operators, and port
-        authorities — covering training, tactical proving, mission rehearsal, and assessment.
-      </p>
+const routeCategoryMap: Record<string, string> = {
+  "/defence": "naval",
+  "/maritime": "marine",
+};
 
-      <Tabs defaultValue="naval" className="w-full">
-        <TabsList className="h-auto flex flex-wrap justify-start gap-2 bg-transparent p-0">
-          {productCategories.map((cat) => (
-            <TabsTrigger
-              key={cat.key}
-              value={cat.key}
-              className="data-[state=active]:bg-accent/20 data-[state=active]:text-accent"
-            >
-              {cat.label}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+const routePageContent: Record<
+  string,
+  {
+    eyebrow: string;
+    title: string;
+    description: string;
+  }
+> = {
+  "/defence": {
+    eyebrow: "PRODUCTS",
+    title: "DEFENSE SIMULATORS",
+    description:
+      "The simulators are designed and built to deliver a high degree of integration and interoperability, enabling the practice of missions involving multiple force elements performing in their own individual roles towards a common objective.",
+  },
+  "/maritime": {
+    eyebrow: "PRODUCTS",
+    title: "MARINE",
+    description:
+      "Complete marine simulation solutions built for bridge operations, engine room training, cargo handling, communication, and mission-critical logistics across modern maritime environments.",
+  },
+};
 
-        {productCategories.map((cat) => (
-          <TabsContent key={cat.key} value={cat.key} className="mt-7">
-            <div className="product-image-card mb-6 rounded-xl overflow-hidden ring-1 ring-border/60">
-              <img src={cat.image} alt={cat.label} className="h-[420px] w-full object-cover" />
+const Products = () => {
+  const location = useLocation();
+  const activeRouteCategory = routeCategoryMap[location.pathname];
+  const routePageHeader = routePageContent[location.pathname];
+  const visibleCategories = activeRouteCategory
+    ? productCategories.filter(
+        (category) => category.key === activeRouteCategory,
+      )
+    : productCategories;
+
+  return (
+    <div className="section">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {activeRouteCategory ? (
+          visibleCategories.map((cat) => (
+            <div key={cat.key} className="mt-7">
+              <div className="product-image-card relative mb-6 overflow-hidden rounded-xl ring-1 ring-border/60">
+                <img
+                  src={cat.image}
+                  alt={cat.label}
+                  className={
+                    location.pathname === "/maritime"
+                      ? "h-[1120px] w-full object-cover md:h-[1280px]"
+                      : "h-[1020px] w-full object-cover md:h-[1180px]"
+                  }
+                />
+                {routePageHeader ? (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/20" />
+                    <div className="absolute inset-0 flex items-end">
+                      <div className="max-w-4xl p-6 text-white md:p-10">
+                        <div className="animate-fade-up-delay-1">
+                          <p className="mb-3 text-xs tracking-[0.35em] text-white/80">
+                            {routePageHeader.eyebrow}
+                          </p>
+                        </div>
+                        <div className="animate-fade-up-delay-2">
+                          <h1 className="heading-balance text-3xl font-bold tracking-tight md:text-5xl">
+                            {routePageHeader.title}
+                          </h1>
+                        </div>
+                        <div className="animate-fade-up-delay-3">
+                          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-white/85 md:text-lg">
+                            {routePageHeader.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : null}
+              </div>
+
+              {!routePageHeader ? (
+                <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                  {cat.intro}
+                </p>
+              ) : null}
+
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+                {cat.products.map((product) => (
+                  <Link
+                    key={product.title}
+                    to={productPath(cat.key, product.title)}
+                    className="block"
+                  >
+                    <Card className="h-full border-border/60 bg-card/60 transition-all hover:-translate-y-1 hover:shadow-lg">
+                      <CardContent className="p-7">
+                        <h3 className="mb-2 text-base font-semibold tracking-tight">
+                          {product.title}
+                        </h3>
+                        <p className="text-sm leading-relaxed text-muted-foreground">
+                          {product.desc}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
             </div>
-
-            <p className="text-muted-foreground mb-10 max-w-3xl text-sm md:text-base leading-relaxed">{cat.intro}</p>
-
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-              {cat.products.map((product) => (
-                <Link key={product.title} to={productPath(cat.key, product.title)} className="block">
-                  <Card className="h-full border-border/60 bg-card/60 transition-all hover:-translate-y-1 hover:shadow-lg">
-                    <CardContent className="p-7">
-                      <h3 className="text-base font-semibold tracking-tight mb-2">{product.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{product.desc}</p>
-                    </CardContent>
-                  </Card>
-                </Link>
+          ))
+        ) : (
+          <Tabs defaultValue="naval" className="w-full">
+            <TabsList className="h-auto flex flex-wrap justify-start gap-2 bg-transparent p-0">
+              {productCategories.map((cat) => (
+                <TabsTrigger
+                  key={cat.key}
+                  value={cat.key}
+                  className="data-[state=active]:bg-accent/20 data-[state=active]:text-accent"
+                >
+                  {cat.label}
+                </TabsTrigger>
               ))}
-            </div>
-          </TabsContent>
-        ))}
-      </Tabs>
+            </TabsList>
+
+            {productCategories.map((cat) => (
+              <TabsContent key={cat.key} value={cat.key} className="mt-7">
+                <div className="product-image-card mb-6 overflow-hidden rounded-xl ring-1 ring-border/60">
+                  <img
+                    src={cat.image}
+                    alt={cat.label}
+                    className="h-[420px] w-full object-cover"
+                  />
+                </div>
+
+                <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                  {cat.intro}
+                </p>
+
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+                  {cat.products.map((product) => (
+                    <Link
+                      key={product.title}
+                      to={productPath(cat.key, product.title)}
+                      className="block"
+                    >
+                      <Card className="h-full border-border/60 bg-card/60 transition-all hover:-translate-y-1 hover:shadow-lg">
+                        <CardContent className="p-7">
+                          <h3 className="mb-2 text-base font-semibold tracking-tight">
+                            {product.title}
+                          </h3>
+                          <p className="text-sm leading-relaxed text-muted-foreground">
+                            {product.desc}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Products;

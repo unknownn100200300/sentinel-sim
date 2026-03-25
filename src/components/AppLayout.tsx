@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Mail, Menu, Phone } from "lucide-react";
 
-import ariLogo from "@/assets/ari-logo-light.png";
+import ariLogoDark from "@/assets/ARILogoDarkVersionRGB.png";
+import ariLogoLight from "@/assets/ari-logo-light.png";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -24,7 +25,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
       <header className="fixed inset-x-0 top-0 z-50 h-20 border-b border-border/70 bg-white md:h-24">
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 lg:px-8">
           <Link to="/" className="flex items-center">
-            <img src={ariLogo} alt="ARI Simulation" className="h-12 w-auto md:h-14" />
+            <img src={ariLogoDark} alt="ARI Simulation" className="h-12 w-auto md:h-14" />
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
@@ -63,12 +64,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
         <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
             <div>
-              <img src={ariLogo} alt="ARI Simulation" className="h-14 w-auto" />
-              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-                Applied Research International Pvt. Ltd.
-                <br />
-                High-fidelity simulation for mission-critical training.
-              </p>
+              <img src={ariLogoLight} alt="ARI Simulation" className="h-20 w-auto md:h-24" />
             </div>
 
             <div>
@@ -85,9 +81,14 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
             <div>
               <p className="text-sm font-semibold tracking-wide">CONTACT</p>
               <div className="mt-4 flex flex-col gap-2 text-sm text-muted-foreground">
+                <div className="leading-relaxed">
+                  Applied Research International Pvt. Ltd.
+                  <br />
+                  E-46/13, Okhla Phase II, New Delhi - 110020
+                </div>
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-accent" />
-                  <span>+91 11 41326882</span>
+                  <span>(+91) 11 41326882</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-accent" />
