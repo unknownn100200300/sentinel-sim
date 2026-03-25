@@ -1,8 +1,7 @@
 import { ChevronLeft } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 
-import NavalBridgeOperationsDetail from "@/components/NavalBridgeOperationsDetail";
-import { getProductDetailByRoute } from "@/data/productDetailsCatalog";
+import { getProductDetailByRoute, navalBridgeSections } from "@/data/productDetailsCatalog";
 import NotFound from "./NotFound";
 
 const ProductDetails = () => {
@@ -29,7 +28,25 @@ const ProductDetails = () => {
         <h1 className="heading-balance text-3xl md:text-4xl font-bold tracking-tight mb-5">{product.title}</h1>
 
         {isNavalBridgeOperations ? (
-          <NavalBridgeOperationsDetail />
+          <div className="space-y-14">
+            {navalBridgeSections.map((section, index) => (
+              <section
+                key={section.id}
+                className={`grid gap-10 md:grid-cols-2 md:items-center ${section.reverse ? "md:flex-row-reverse" : ""}`}
+              >
+                <div className={section.textClass}>
+                  {section.title && <h3 className="heading-balance text-xl font-bold tracking-tight">{section.title}</h3>}
+                  {section.bullets.map((text, i) => (
+                    <p key={`${section.id}-p-${i}`}>{text}</p>
+                  ))}
+                </div>
+
+                <div className="overflow-hidden rounded-xl border border-border/60 bg-card/60">
+                  <img src={section.image} alt={section.imageAlt} className={section.imageClass} />
+                </div>
+              </section>
+            ))}
+          </div>
         ) : (
           <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-3xl whitespace-pre-line">
             {product.description}

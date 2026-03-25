@@ -3,6 +3,10 @@ import marineImg from "@/assets/MarineLogistic.jpeg";
 import offshoreImg from "@/assets/Offshore Simulator-1.jpg";
 import craneImg from "@/assets/PortsTerminals.jpg";
 import heroImg from "@/assets/Cloud.jpg";
+import navalBridgeImg from "@/assets/Naval Bridge.jpg";
+import radarArpaImg from "@/assets/Radar2.jpg";
+import ecdisImg from "@/assets/Ecdis3 copy.jpg";
+import gmdssImg from "@/assets/Gmdss-Communiation.jpg";
 import { slugify } from "./products";
 
 export type ProductDetail = {
@@ -351,6 +355,74 @@ The ARI Communications Simulator provides an operating environment for the train
     image: heroImg,
     description:
       "Advanced real-time 3D visualization with dynamic environmental effects for simulation and training.",
+  },
+];
+
+export type ProductDetailSection = {
+  id: string;
+  title: string | null;
+  bullets: string[];
+  image: string;
+  imageAlt: string;
+  imageClass: string;
+  textClass: string;
+  reverse: boolean;
+};
+
+export const navalBridgeSections: ProductDetailSection[] = [
+  {
+    id: "overview",
+    title: null,
+    bullets: [
+      "The ARI vessel bridge simulator recreates the complete operational environment of a naval ship bridge.",
+      "Integrated with advanced visualisation systems and motion platforms, the simulator delivers a fully immersive and realistic training experience.",
+      "It enables officers to practice ship navigation, convoy coordination, and fleet operations management within a safe and controlled training environment.",
+    ],
+    image: navalBridgeImg,
+    imageAlt: "Naval Bridge Simulator",
+    imageClass: "h-[340px] w-full object-cover",
+    textClass: "space-y-4 text-sm leading-relaxed text-muted-foreground",
+    reverse: false,
+  },
+  {
+    id: "radar",
+    title: "Radar / ARPA Simulator",
+    bullets: [
+      "The Radar and ARPA simulator complies with IMO performance standards for radar equipment used on seagoing vessels.",
+      "It supports the training requirements defined in IMO Model Courses 1.07 and 1.08.",
+      "The system enables realistic radar operation training and includes multiple radar types, including real OEM equipment and advanced radar emulation systems.",
+    ],
+    image: radarArpaImg,
+    imageAlt: "Radar ARPA Simulator",
+    imageClass: "h-[340px] w-full object-contain p-4",
+    textClass: "space-y-4 text-sm leading-relaxed text-muted-foreground",
+    reverse: true,
+  },
+  {
+    id: "ecdis",
+    title: "ECDIS Simulator",
+    bullets: [
+      "The ARI Electronic Chart Display and Information System (ECDIS) simulator is designed according to the latest STCW Manila Amendments and supports training requirements defined in IMO Model Course 1.27.",
+      "It can operate as a standalone training system or integrate with additional navigation aids to simulate a fully functional bridge navigation environment.",
+    ],
+    image: ecdisImg,
+    imageAlt: "ECDIS Simulator",
+    imageClass: "h-[340px] w-full object-contain p-4",
+    textClass: "space-y-4 text-sm leading-relaxed text-muted-foreground",
+    reverse: false,
+  },
+  {
+    id: "gmdss",
+    title: "GMDSS & Communications Simulator",
+    bullets: [
+      "The ARI communications simulator provides complete operational training for maritime communication systems used on modern ships.",
+      "The simulator allows trainees to practice distress and routine communication procedures using satellite and terrestrial systems in a highly realistic operating environment.",
+    ],
+    image: gmdssImg,
+    imageAlt: "GMDSS Simulator",
+    imageClass: "h-[340px] w-full object-contain p-4",
+    textClass: "space-y-4 text-sm leading-relaxed text-muted-foreground",
+    reverse: true,
   },
 ];
 
