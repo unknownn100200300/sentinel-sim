@@ -54,8 +54,8 @@ const Products = () => {
                   alt={cat.label}
                   className={
                     location.pathname === "/maritime"
-                      ? "h-[1120px] w-full object-cover md:h-[1280px]"
-                      : "h-[1020px] w-full object-cover md:h-[1180px]"
+                      ? "h-[1320px] w-full object-cover md:h-[1520px]"
+                      : "h-[1220px] w-full object-cover md:h-[1420px]"
                   }
                 />
                 {routePageHeader ? (
