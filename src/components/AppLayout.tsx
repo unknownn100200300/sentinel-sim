@@ -8,10 +8,12 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { key: "/", label: "Home" },
-  { key: "/products", label: "Products" },
-  { key: "/industries", label: "Industries" },
-  { key: "/contact", label: "Contact" },
+  { key: "/defence", label: "Defence" },
+  { key: "/maritime", label: "Maritime" },
+  { key: "/training", label: "Training" },
+  { key: "/clients", label: "Clients" },
+  { key: "/press", label: "Press" },
+  { key: "/about", label: "About Us" },
 ];
 
 const AppLayout = ({ children }: { children: ReactNode }) => {
@@ -19,29 +21,34 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <header className="fixed inset-x-0 top-0 z-50 h-20 border-b border-border/70 bg-background/80 backdrop-blur md:h-24">
+      <header className="fixed inset-x-0 top-0 z-50 h-20 border-b border-border/70 bg-white md:h-24">
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 lg:px-8">
           <Link to="/" className="flex items-center">
             <img src={ariLogo} alt="ARI Simulation" className="h-12 w-auto md:h-14" />
           </Link>
 
-          <nav className="hidden items-center gap-2 md:flex" aria-label="Primary navigation">
+          <nav className="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
             {navItems.map((item) => (
               <NavLink
                 key={item.key}
                 to={item.key}
                 className={({ isActive }) =>
                   cn(
-                    "rounded-md px-3 py-2 text-xs suppercase tracking-[0.18em] transition-colors",
+                    "rounded-md px-3 py-2 text-xs uppercase tracking-[0.18em] transition-colors",
                     isActive
-                      ? "bg-accent/20 text-white"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent/10",
+                      ? "bg-primary/10 text-primary"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-100",
                   )
                 }
               >
                 {item.label}
               </NavLink>
             ))}
+            <Link to="/contact" className="ml-2">
+              <Button size="sm" className="h-9 px-5 text-xs uppercase tracking-wider">
+                Request Demo
+              </Button>
+            </Link>
           </nav>
 
           <div className="md:hidden">
@@ -121,13 +128,16 @@ function MobileNav({ currentPath }: { currentPath: string }) {
               className={cn(
                 "rounded-md px-3 py-2 text-sm font-medium transition-colors",
                 currentPath === item.key
-                  ? "bg-accent/20 text-accent"
+                  ? "bg-primary/10 text-primary"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent/10",
               )}
             >
               {item.label}
             </Link>
           ))}
+          <Link to="/contact" className="mt-2">
+            <Button className="w-full">Request Demo</Button>
+          </Link>
         </nav>
       </SheetContent>
     </Sheet>
