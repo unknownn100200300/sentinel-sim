@@ -128,9 +128,9 @@ const Index = () => (
           <div>
             <div className="animate-fade-up-delay-1">
               <h1 className="heading-balance text-4xl md:text-[54px] leading-[1.05] font-extrabold tracking-[-0.03em] mb-6">
-                High-Fidelity Simulation
+                Solution for
                 <br />
-                for <span className="accent">Mission-Critical</span> Training
+               <span className="accent">Mission-Critical Operations</span> 
               </h1>
             </div>
 
@@ -159,7 +159,7 @@ const Index = () => (
       </div>
     </section>
 
-    <section className="section">
+    {/* <section className="section">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 className="heading-balance text-3xl md:text-4xl font-bold tracking-tight mb-6">About ARI Simulation</h2>
         <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-3xl">
@@ -170,7 +170,7 @@ const Index = () => (
           installations and cloud-based solutions.
         </p>
       </div>
-    </section>
+    </section> */}
 
     <section className="section section-alt">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
