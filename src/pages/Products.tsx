@@ -48,15 +48,11 @@ const Products = () => {
         {activeRouteCategory ? (
           visibleCategories.map((cat) => (
             <div key={cat.key} className="mt-7">
-              <div className="product-image-card relative mb-6 overflow-hidden rounded-xl ring-1 ring-border/60">
+              <div className="product-image-card relative mb-6 overflow-hidden rounded-xl ring-1 ring-border/60 ">
                 <img
                   src={cat.image}
                   alt={cat.label}
-                  className={
-                    location.pathname === "/maritime"
-                      ? "h-[1320px] w-full object-cover md:h-[1520px]"
-                      : "h-[1220px] w-full object-cover md:h-[1420px]"
-                  }
+                  className="h-full w-full object-cover"
                 />
                 {routePageHeader ? (
                   <>
@@ -69,12 +65,12 @@ const Products = () => {
                           </p>
                         </div>
                         <div className="animate-fade-up-delay-2">
-                          <h1 className="heading-balance text-3xl font-bold tracking-tight md:text-5xl">
+                          <h1 className="heading-balance text-2xl font-bold tracking-tight md:text-4xl">
                             {routePageHeader.title}
                           </h1>
                         </div>
                         <div className="animate-fade-up-delay-3">
-                          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-white/85 md:text-lg">
+                          <p className="mt-4 max-w-3xl text-xs leading-relaxed text-white/85 md:text-base">
                             {routePageHeader.description}
                           </p>
                         </div>
